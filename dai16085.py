@@ -1,5 +1,5 @@
-# Ioannis Panagiotis Pitsiorlas dai16085
-# 1st Exercise Automata Theory
+# Ioannis Panagiotis Pitsiorlas 
+# Crestion of an Automate
 
 
 transitions = []
@@ -7,7 +7,7 @@ final_states = []
 transition_str = ""
 alphabet = []
 
-# diavasma tou arxeiou
+# reading the file
 filename = raw_input("Give the name of the file with the file extension 'txt': " )
 
 
@@ -19,24 +19,24 @@ num_of_final_states = int(file[2])
 final_states_str = file[3]
 num_of_transitions = int(file[4])
 
-# Prosthetw tis metavivaseis se enan pinaka
+# Adding the transitions in the array
 for i in range(0, num_of_transitions):
     transitions.insert(i, file[i+5])
 
 fsindex = 0
 
-# Xwrizw tis telikes katastaseis me elegxo gia to an einai psifia kai tis vazw se mia kainouria metavlith final states
+# Seperating and adding the final states in a new variable
 for i in final_states_str.split():
     if i.isdigit():
         final_states.insert(fsindex, i)
         fsindex += 1
 
-# Pairnw kathe gramma apo tis metavivaseis kai ta vazw se mia string metavliti
+# Adding each character in a string variable
 for i in range(0, len(transitions)):
     transition_char = transitions[i]
     transition_str += transition_char[1]
 
-# Elegxw to string wste na mhn mpoun diplotipa grammata mesa sto alphavito mou
+# Searching if there are any duplicates
 for i in range(0, len(transition_str)):
     if transition_str[i] not in alphabet:
         alphabet += transition_str[i]
@@ -44,10 +44,9 @@ for i in range(0, len(transition_str)):
 r = number_of_states
 c = len(alphabet)
 
-# Dimiourgw enan pinaka me tis katastaseis kai thn alphavita
 Matrix = [[0 for x in range(c)] for y in range(r)]
 
-# Allazw se ASCII ta grammata tis alphavitou kai ta prosthetw ston pinaka pou dimiourgisa
+#Changing each character in ASCII code
 for i in range(0, num_of_transitions):
     temp = transitions[i]
     char1 = temp[0]
@@ -65,8 +64,8 @@ while True:
     current_state = 1
     flag = 0
 
-# Elegxw an sthn leksh pou dothike oi xaraktires ths vriskontai sto alphavito mou, krataw thn katastash pou vriskete to
-# automato kai allazw kathe xaraktira se ASCII
+
+#Evaluate if the characters in the given word are in my Alphabet, keeping the current state
     for i in range(0, len(inputstr)):
         character = inputstr[i]
         if character not in alphabet:
@@ -80,13 +79,12 @@ while True:
 
 
     finalstatesint = map(int, final_states)
-# Elegxw an h katastash sthn opoia vrisketai to automato einai telikh kai analogws dexomai thn leksh
+
     if current_state in finalstatesint and flag == 0:
         print "accepted"
     else:
         print "not accepted"
 
-# Elegxw an o xristis thelei na sinexisei to programma
     answer = raw_input("Do you want to continue? Yes: 1, No: 2 ")
     if int(answer) == 2:
         break
