@@ -6,6 +6,8 @@ and the input is random characters or words.
 
 The automate will answer whether the word belongs in the language of the automate or not.
 
+Description of the file.
+
 - 3 The automate has 3 states
 - 1 The initial states is the 1
 - 2 There are 2 initial states
