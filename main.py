@@ -1,5 +1,5 @@
 # Ioannis Panagiotis Pitsiorlas 
-# Crestion of an Automate
+# Creation of an Automate
 
 
 transitions = []
